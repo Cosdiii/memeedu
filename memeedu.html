@@ -9,23 +9,99 @@
 <body>
 <img src= "banner02.jpg" style="display:block; margin:auto;" width="1200" height="654" />
 <img src= "memeedu02.jpg" style="display:block; margin:auto;" width="1200" height="654" />
-
-<frameset cols="15%,85%">
-
-
-<div style="width:200px; float:left;height:300px;background-color:lightgray">
-<frame src="menu.html" />
-</div>
-
-
-<div style="height:300px;background-color:white;">
-<frame name="content" src="content.html" />
-</div>
+ 
+        <style type="text/css">  
+            #content {  
+                width: 400px;  
+                height: 200px;  
+            }  
+              
+            #tab_bar {  
+                width: 400px;  
+                height: 40px;  
+                float: left;  
+            }  
+            #tab_bar ul {  
+                padding: 0px;  
+                margin: 0px;  
+                height: 40px;  
+                text-align: center;  
+            }  
+              
+            #tab_bar li {  
+                list-style-type: none;  
+                float: left;  
+                width: 133.3px;  
+                height: 40px;  
+                background-color: gray;  
+            }  
+              
+            .tab_css {  
+                width: 1503px;
+                height:1500px;  
+                background-color: lightgray;  
+                display: none;  
+                float: left;  
+            }  
+              
+        </style>  
+        <script type="text/javascript">  
+            var myclick = function(v) {  
+                var llis = document.getElementsByTagName("li");  
+                for(var i = 0; i < llis.length; i++) {  
+                    var lli = llis[i];  
+                    if(lli == document.getElementById("tab" + v)) {  
+                        lli.style.backgroundColor = "white";  
+                    } else {  
+                        lli.style.backgroundColor = "gray";  
+                    }  
+                }  
+  
+                var divs = document.getElementsByClassName("tab_css");  
+                for(var i = 0; i < divs.length; i++) {  
+  
+                    var divv = divs[i];  
+  
+                    if(divv == document.getElementById("tab" + v + "_content")) {  
+                        divv.style.display = "block";  
+                    } else {  
+                        divv.style.display = "none";  
+                    }  
+                }  
+  
+            }  
+        </script>  
+    </head>  
+    <body>  
+        <div id="content">  
+            <div id="tab_bar">  
+                <ul>  
+                    <li id="tab1" onclick="myclick(1)" style="background-color: lightgray;">  
+                        tab1  
+                    </li>  
+                    <li id="tab2" onclick="myclick(2)">  
+                        tab2  
+                    </li>  
+                    <li id="tab3" onclick="myclick(3)">  
+                        tab3  
+                    </li>  
+                </ul>  
+            </div>  
+            <div class="tab_css" id="tab1_content" style="display: block">  
+                <div>页面一</div>  
+            </div>  
+            <div class="tab_css" id="tab2_content">  
+                <div>页面二</div>  
+            </div>  
+            <div class="tab_css" id="tab3_content">  
+                <div>页面三</div>  
+            </div>  
+        </div>  
 
 <div style="clear:both;height:75px;background-color:black;">
 
 </div>
 
-</frameset>
+
 </body>
 </html>
